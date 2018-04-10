@@ -48,15 +48,7 @@ class SongsController < ApplicationController
     erb :'songs/new'
   end
 
-
-  post '/songs/:slug/edit' do
-    slug = params["slug"] #do I need this?
-
-    @song = Song.find_by_slug(slug) #do I need this?
-    @genres = Genre.all
-
-
-    erb :'songs/edit'
+  patch '/songs/:slug' do
   end
 
 
