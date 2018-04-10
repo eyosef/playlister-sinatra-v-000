@@ -25,7 +25,7 @@ class SongsController < ApplicationController
       song.save
     elsif
       song.name = params["song_name"] || params["Song Name"]
-      song.genre_ids = params["genre"]
+      song.genre_ids = params["genre"] || params["genre"]["name"]
       song.save
     end
 
