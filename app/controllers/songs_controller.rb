@@ -50,8 +50,6 @@ class SongsController < ApplicationController
 
 
   post '/songs/:slug/edit' do
-    binding.pry
-
     slug = params["slug"] #do I need this?
 
     @song = Song.find_by_slug(slug) #do I need this?
