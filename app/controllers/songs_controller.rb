@@ -49,6 +49,7 @@ class SongsController < ApplicationController
   end
 
   patch '/songs/:slug' do
+    binding.pry
   end
 
 
