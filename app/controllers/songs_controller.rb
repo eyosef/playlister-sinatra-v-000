@@ -20,6 +20,7 @@ class SongsController < ApplicationController
 
     if song.name == nil
       song.name = params["song_name"] || params["Song Name"]
+      binding.pry
       song.genre_ids = params["genre"] || params["genre"]["name"]
       song.save
     elsif
