@@ -50,6 +50,7 @@ class SongsController < ApplicationController
 
 
   post '/songs/:slug/edit' do
+    binding.pry
 
     slug = params["slug"] #do I need this?
 
@@ -61,7 +62,6 @@ class SongsController < ApplicationController
   end
 
   post '/songs/:slug/update' do
-    binding.pry
     song = Song.create(name: params["song_name"])
     song.genre_ids = params["genre"]
 
