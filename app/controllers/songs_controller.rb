@@ -17,7 +17,7 @@ class SongsController < ApplicationController
     #song.genre_ids = params["genre"]
     binding.pry
 
-    song = Song.find_by(name: params["song_name"]) #new addition
+    song = Song.find_by(name: params["song_name"]) || Song.find_by(name: params["Song Name"]) #new addition
 
     if !song
       song = Song.create(name: params["song_name"])
