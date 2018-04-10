@@ -15,11 +15,11 @@ class SongsController < ApplicationController
   post '/songs/:slug' do
     #song = Song.create(name: params["song_name"])
     #song.genre_ids = params["genre"]
+    binding.pry
 
     song = Song.find_by(name: params["song_name"]) #new addition
 
     if !song
-      binding.pry
       song = Song.create(name: params["song_name"])
       song.genre_ids = params["genre"]
       song.save
