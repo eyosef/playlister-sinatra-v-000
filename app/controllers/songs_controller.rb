@@ -20,7 +20,7 @@ class SongsController < ApplicationController
 
     if !song
       song = Song.create(name: params["song_name"])
-            binding.pry
+      binding.pry
       song.genre_ids = params["genre"]
       song.save
     elsif
