@@ -13,21 +13,11 @@ class SongsController < ApplicationController
   end
 
   post '/songs/:slug' do
-    #song = Song.create(name: params["song_name"])
-    #song.genre_ids = params["genre"]
+    song = Song.create(name: params["song_name"])
+    song.genre_ids = params["genre"]
 
-    song = Song.find_by(name: params["song_name"]) || Song.find_by(name: params["Song Name"]) #new addition
-    genre = Genre.find_by(name: params["genre"]) || Genre.find_by(name: params["genre"]["name"])
-
-    if song.name == nil
-      song.name = params["song_name"] || params["Song Name"]
-      song.genre_ids = params["genre"] || params["genre"]["name"]
-      song.save
-    elsif
-      song.name = params["song_name"] || params["Song Name"]
-      song.genre_ids = params["genre"] || params["genre"]["name"]
-      song.save
-    end
+    # song = Song.find_by(name: params["song_name"]) || Song.find_by(name: params["Song Name"]) #new addition
+    # genre = Genre.find_by(name: params["genre"]) || Genre.find_by(name: params["genre"]["name"]) #new addition
 
     artist = Artist.find_by(name: params["artist_name"]) || Artist.find_by(name: params["Artist Name"])
 
