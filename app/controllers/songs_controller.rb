@@ -29,7 +29,7 @@ class SongsController < ApplicationController
       song.save
     end
 
-    artist = Artist.find_by(name: params["artist_name"])
+    artist = Artist.find_by(name: params["artist_name"]) || Artist.find_by(name: params["Artist Name"])
 
     if !artist
       new_artist = Artist.create(name: params["artist_name"])
