@@ -17,11 +17,10 @@ class SongsController < ApplicationController
     #song.genre_ids = params["genre"]
 
     song = Song.find_by(name: params["song_name"]) || Song.find_by(name: params["Song Name"]) #new addition
-    genre = Genre.find_by(name: params["genre"]) || Genre.find_by(name: params["genre"]["name"]) 
+    genre = Genre.find_by(name: params["genre"]) || Genre.find_by(name: params["genre"]["name"])
 
     if song.name == nil
       song.name = params["song_name"] || params["Song Name"]
-      binding.pry
       song.genre_ids = params["genre"] || params["genre"]["name"]
       song.save
     elsif
