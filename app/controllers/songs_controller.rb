@@ -19,7 +19,7 @@ class SongsController < ApplicationController
 
     song = Song.find_by(name: params["song_name"]) || Song.find_by(name: params["Song Name"]) #new addition
 
-    if !song
+    if song.name == nil
       song = Song.create(name: params["song_name"])
       song.genre_ids = params["genre"]
       song.save
