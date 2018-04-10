@@ -59,31 +59,5 @@ class SongsController < ApplicationController
     erb :'songs/edit'
   end
 
-  post '/songs/:slug/update' do
-    binding.pry
-    song = Song.create(name: params["song_name"])
-    song.genre_ids = params["genre"]
-
-    # song = Song.find_by(name: params["song_name"]) || Song.find_by(name: params["Song Name"]) #new addition
-    # genre = Genre.find_by(name: params["genre"]) || Genre.find_by(name: params["genre"]["name"]) #new addition
-
-    artist = Artist.find_by(name: params["artist_name"]) || Artist.find_by(name: params["Artist Name"])
-
-    if !artist
-      new_artist = Artist.create(name: params["artist_name"])
-      song.artist = new_artist
-      song.save
-      new_artist.save
-    else
-      song.artist = artist
-      song.save
-      artist.save
-    end
-
-    # genre = Genre.find_by(id: params["genre"]) #WORKING ON
-    #FYI TO SELF: trying to update genre.name from 'New Age Garbage' to 'Hippity Hop'
-
-    redirect "/songs/#{song.slug}" #moves to GET '/songs/:slug'
-  end
 
 end
