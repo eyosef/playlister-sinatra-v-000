@@ -19,7 +19,7 @@ class SongsController < ApplicationController
     song = Song.find_by(name: params["song_name"]) #new addition
 
     if !song
-            binding.pry
+      binding.pry
       song = Song.create(name: params["song_name"])
       song.genre_ids = params["genre"]
       song.save
