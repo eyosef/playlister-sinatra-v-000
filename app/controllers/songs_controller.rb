@@ -48,7 +48,7 @@ class SongsController < ApplicationController
     erb :'songs/new'
   end
 
-  patch '/songs/:slug/edit' do
+  patch '/songs/:slug' do
     binding.pry
   end
 
