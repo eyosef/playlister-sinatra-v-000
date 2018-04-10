@@ -61,6 +61,7 @@ class SongsController < ApplicationController
   end
 
   post '/songs/:slug/update' do
+    binding.pry
     song = Song.create(name: params["song_name"])
     song.genre_ids = params["genre"]
 
