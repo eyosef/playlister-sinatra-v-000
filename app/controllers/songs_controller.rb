@@ -60,7 +60,7 @@ class SongsController < ApplicationController
     erb :'songs/edit'
   end
 
-  post '/songs/:slug/update' do 
+  post '/songs/:slug/update' do
   end
 
 end
